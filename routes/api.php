@@ -18,7 +18,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 /* ==================================================
               Product API Routes w/ Sanctum
    ================================================== */
-Route::middleware('/auth:sanctum')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/products', ProductController::class);
     Route::get('/products/search', [ProductController::class, 'searchByName']);
 });
